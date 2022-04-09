@@ -10,7 +10,7 @@ byte mod;
 #include "RTClib.h"
 RTC_DS3231 rtc;
 char currentTime[9];
-int waktu_motor_putar = 30000;                        // WAKTU PERPUTARAN MOTOR
+int waktu_motor_putar = 30000;                        // Durasi perputaran telur selama 30 detik
 #define pin_motor_putar D7                              //PIN motor putar telur
 
 // ------------ Pendeteksi Telur --------------
