@@ -1,23 +1,14 @@
 void pendeteksi_telur()
-{                        
-int ldrValue;
-ldrValue = analogRead(ldrPin);
-//lcd Untuk Blynk
-  Serial.print(ldrValue);
-  lcd.print(1,0,"Telur :");   
-  Blynk.virtualWrite(V0, ldrValue);
-  
-  if (ldrValue<200){
-  Serial.println("MASUKAN TELUR");//ke serial monitor
-  lcd.print(1,1,"MASUKAN TELUR");           
+{                       
+  //Sensor aktif LOW
+  ir = digitalRead(IR);
+  if(ir == 0){
+    digitalWrite(lampu_pendeteksi, LOW); 
+      indikasi_lampu_pendeteksi.on();
+  }
+  else if(ir == 1){
+    digitalWrite(lampu_pendeteksi, HIGH);
+    indikasi_lampu_pendeteksi.off();
+       
   }  
-  else if (ldrValue>500){
-  Serial.println("NON INFERTIL");
-  lcd.print(1,1,"NON INFERTIL");              
-  }
-  
-  else if (ldrValue<400){
-  Serial.println("INFERTIL");
-  lcd.print(1,1,"INFERTIL");
-  }
-}
+} 
